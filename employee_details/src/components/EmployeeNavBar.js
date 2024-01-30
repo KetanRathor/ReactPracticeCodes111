@@ -1,16 +1,34 @@
-// EmployeeNavBar.js
+import React from "react";
+import EmployeeNames from "./EmployeeNames";
 
-import React from 'react';
 
-function EmployeeNavBar({ employees }) {
-    return ( 
-        <div id = "EmployeeNavBar" > { /* Map through the employees prop and display only names */ } {
-            employees.map((employee, index) => ( 
-                <div key = { index } > { employee.name } </div>
-            ))
-        } 
+function EmployeeNavBar(props){
+  function isEmployeeSelected(employeeName) {
+    return props.selectedEmployee.name === employeeName;
+  }
+
+
+  function employeeList(){
+    const list = [];
+
+    for(let i = 0; i<props.employees.length;i++){
+      const employee = props.employees[i];
+      list.push(
+        <EmployeeNames 
+        key = {i} 
+        name={employee.name}
+        onClick = {props.onEmployeeClick}
+        isSelected={isEmployeeSelected(employee.name)} />
+      )
+    }
+    return list;
+  }
+
+
+    return (
+        <div id="EmployeeNavBar">
+         {employeeList()}
         </div>
-    );
+      );
 }
-
 export default EmployeeNavBar;

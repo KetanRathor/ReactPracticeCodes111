@@ -3,7 +3,7 @@ function Ayslogo(){
 
     return(
         <div id="aysLogo">
-            {/* <img src="..\AYSLogo.jpg" /> */}
+            <img src="..\AYSLogo1.jpg" alt=""/>
         </div>
     )
     }
