@@ -1,18 +1,16 @@
-import React from "react";
+// EmployeeNavBar.js
 
-const employees = [
-    { name: "Ketan", Salary: 20000, dID: 100, Designation: "Developer" },
-    // Add more employee objects as needed
-  ];
-function EmployeeNavBar(){
+import React from 'react';
 
-
-    return (
-        <div id="EmployeeNavBar">
-          {employees.map((employee, index) => (
-            <div key={index}>{employee.name}</div>
-          ))}
+function EmployeeNavBar({ employees }) {
+    return ( 
+        <div id = "EmployeeNavBar" > { /* Map through the employees prop and display only names */ } {
+            employees.map((employee, index) => ( 
+                <div key = { index } > { employee.name } </div>
+            ))
+        } 
         </div>
-      );
+    );
 }
+
 export default EmployeeNavBar;
