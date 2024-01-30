@@ -7,6 +7,16 @@ import React from "react";
         props.onSearch(e.target.value)
     }
 
+    function handleSortAsc(){
+        props.onSortAsc()
+    }
+
+    function handleSortDesc(){
+        props.onSortDesc()
+    }
+
+
+
     return(
         <div id="Header">
         <div id="Header1">
@@ -19,26 +29,12 @@ import React from "react";
         <input type="text" id="fname" name="fname" value={props.searchInput} onChange={handleInputChange}/>
         <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
 
-    return ( 
-        <div
-         id = "Header" >
-        <div id = "Header1" >
-        Employee Details </div> 
-
-        <div id = "ToolBar" >
-        <button id = "add" type = "button" > Add Employes </button> 
-        <input type = "text" id = "fname"
-        name = "fname" />
-        <button id = "Search" type = "button" > Search </button>
-
-        <button id = "Asc"
-        type = "button" > Asc </button> 
-        <button id = "Desc"
-        type = "button" > Desc </button>
+        <button id="Asc" type="button" onClick={handleSortAsc}>Asc</button>
+        <button id="Desc" type="button"  onClick={handleSortDesc}>Desc</button>
 
 
-        </div> 
+        </div>
         </div>
     )
-}
-export default Header;
+ }
+ export default Header;
