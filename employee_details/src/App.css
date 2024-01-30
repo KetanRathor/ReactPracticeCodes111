@@ -2,13 +2,16 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  border-style: dashed;
+  /* border-style: dashed; */
 }
 #aysLogo{
   display: flex;
-  height: 10%;
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: 12%;
   width: 18%;
-  border-style: solid;
+  border-right: 2px inset;
+  /* border-style: solid; */
 }
 
 /* img{
@@ -19,17 +22,22 @@
   flex-direction: column;
   height:20%;
   width: 82%;
-  border-style: solid;
+  border-bottom: 3px outset;
+  /* border-style: solid; */
 }
 
 #Header1{
   display: flex;
+  position: relative;
   height: 50%;
-  border-style: inset;
+  /* border-style: inset; */
   justify-content:  center;
   align-items: center;
-
+  border-bottom: 3px outset;
+  border-width: 4px;
+  border-color: rgb(236, 71, 71);
   width: 100%;
+  font-size: 160%;
 
 }
 #ToolBar{
@@ -37,24 +45,30 @@
   height: 50%;
   width: 100%;
   
-  border-style: outset;
+  border-bottom: outset;
 }
 
 #add{
-  margin: 15px;
+  display:flex;
+  position: relative;
+  left: 70%;
+  /* margin: 15px; */
+  margin-top: 15px;
   height: 40%;
   width: 10%;
 }
 #fname{
   margin-top:1%;
   height: 40%;
-  width: 10%;
-  left: 20%;
+  width: 15%;
+  /* left: 20%; */
+  margin-left: 0px;
 }
 #Search{
-  margin-top:1%;
+  /* margin-top:1%; */
   height: 40%;
   width: 8%;
+  margin: 15px;
 }
 #Asc{
   margin: 15px;
@@ -70,11 +84,38 @@
 }
 #EmployeeNavBar{
   display: flex;
+  flex-direction: column;
   position: absolute;
   height: 90%;
   width: 18%;
   top:12%;
-  border-style: inset;
+  /* border-style: inset; */
+  border-right: 2px inset; 
+  /* padding-left: 10px;  */
 
 
+}
+#Empnames{
+  display: flex;
+  border: 1px solid;
+  margin-left:30px;
+  margin-top: 10px;
+  border-radius: 15px;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+#totalEmployees{
+  margin: 15px;
+}
+
+
+#EmployeeDetails{
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  align-items: center;
+  justify-content: center;
+  
 }

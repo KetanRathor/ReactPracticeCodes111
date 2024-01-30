@@ -1,17 +1,33 @@
 import React from "react";
+import EmployeeNames from "./EmployeeNames";
 
-const employees = [
-    { name: "Ketan", Salary: 20000, dID: 100, Designation: "Developer" },
-    // Add more employee objects as needed
-  ];
-function EmployeeNavBar(){
+
+function EmployeeNavBar(props){
+  function isEmployeeSelected(employeeName) {
+    return props.selectedEmployee.name === employeeName;
+  }
+
+
+  function employeeList(){
+    const list = [];
+
+    for(let i = 0; i<props.employees.length;i++){
+      const employee = props.employees[i];
+      list.push(
+        <EmployeeNames 
+        key = {i} 
+        name={employee.name}
+        onClick = {props.onEmployeeClick}
+        isSelected={isEmployeeSelected(employee.name)} />
+      )
+    }
+    return list;
+  }
 
 
     return (
         <div id="EmployeeNavBar">
-          {employees.map((employee, index) => (
-            <div key={index}>{employee.name}</div>
-          ))}
+         {employeeList()}
         </div>
       );
 }
