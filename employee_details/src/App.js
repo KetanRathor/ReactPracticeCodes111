@@ -71,18 +71,7 @@ function setSelectedEmployeeFunction(employeeName){
   //     setSearchInput(searchValue);
 
 
-  // }
-  /////////////// Sorting
-  // function handleSortAsc(){
-  //   const sortedEmployees = [...employees].sort((a,b)=>a.name.localeCompare(b.name));
-  //   setEmployees(sortedEmployees);
-  // }
-
-  // function handleSortDesc(){
-  //   const sortedEmployees = [...employees].sort((a,b)=>b.name.localeCompare(a.name));
-  //   setEmployees(sortedEmployees);
-  // }
-
+  }
 
 
   return (

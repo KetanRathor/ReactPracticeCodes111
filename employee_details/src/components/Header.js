@@ -32,6 +32,8 @@ import React from "react";
 
         <button id="Asc" type="button" onClick={handleSortAsc}>Asc</button>
         <button id="Desc" type="button"  onClick={handleSortDesc}>Desc</button>
+        <button id="Asc" type="button" onClick={handleSortAsc}>Asc</button>
+        <button id="Desc" type="button"  onClick={handleSortDesc}>Desc</button>
 
 
         </div>
