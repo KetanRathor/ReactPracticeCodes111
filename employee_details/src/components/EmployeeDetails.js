@@ -6,10 +6,10 @@ function EmployeeDetails(props) {
         <div id="EmployeeDetails">
       <div id="EmployeeDetails1">
         <h2>Employee Details:</h2>
+        <p>Id: {props.employee.id}</p>
         <p>Name: {props.employee.name}</p>
         <p>Salary: {props.employee.Salary}</p>
         <p>Designation: {props.employee.Designation}</p>
-        <p>dID: {props.employee.dID}</p>
         <button id="Delete" type="button">Delete</button>
         <button id="Edit" type="button">Edit</button>
       </div>

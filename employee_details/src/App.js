@@ -6,28 +6,47 @@ import EmployeeNavBar from "./components/EmployeeNavBar";
 import EmployeeDetails from './components/EmployeeDetails';
 
 import './App.css';
+import EmployeeNames from './components/EmployeeNames';
 
 
 function App() {
-const EmployeesData = [
-{ name: "Ketan", Salary: 20000, dID: 1, Designation: "Developer" },
-{ name: "John", Salary: 25000, dID: 2, Designation: "Designer" },
-{ name: "Alice", Salary: 30000, dID: 3, Designation: "Manager" },
-{ name: "Bob", Salary: 22000, dID: 4, Designation: "Developer" },
-{ name: "Eva", Salary: 28000, dID: 5, Designation: "Tester" },
-{ name: "Michael", Salary: 27000, dID: 6, Designation: "Manager" },
-{ name: "Sophia", Salary: 24000, dID: 7, Designation: "Designer" },
-{ name: "William", Salary: 26000, dID: 8, Designation: "Developer" },
-{ name: "Emma", Salary: 29000, dID: 9, Designation: "Tester" },
-{ name: "Oliver", Salary: 31000, dID: 10, Designation: "Manager" }
+const employeesData = [
+{ id:1, name: "Ketan", Salary: 20000, Designation: "Developer" },
+{ id:2, name: "John", Salary: 25000, Designation: "Designer" },
+{ id:3, name: "Alice", Salary: 30000, Designation: "Manager" },
+{ id:4, name: "Bob", Salary: 22000, Designation: "Developer" },
+{ id:5, name: "Eva", Salary: 28000, Designation: "Tester" },
+{ id:6, name: "Michael", Salary: 27000, Designation: "Manager" },
+{ id:7, name: "Sophia", Salary: 24000, Designation: "Designer" },
+{ id:8, name: "William", Salary: 26000, Designation: "Developer" },
+{ id:9, name: "Emma", Salary: 29000, Designation: "Tester" },
+{ id:10, name: "Oliver", Salary: 31000,  Designation: "Manager" }
 ];
 
 
 
-  const [employees, setEmployees] = useState(EmployeesData);
+  const [employees, setEmployees] = useState(employeesData);
   const [selectedEmployee, setSelectedEmployee] = useState({});
-  const [seacrhInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
+  const [selectedSortButton, setselectedSortButton] =useState("");
+  const [text, settext] = useState("")
+  
+  function setSelectedSortButtonFunction(id){
+    setselectedSortButton(id)
+  }
 
+  function settextFunction(text){
+    settext(text)
+  }
+
+
+function setSelectedEmployeeFunction(employeeName){
+  selectedEmployee(employeeName)
+}
+
+
+
+///// Selecting Employee Click
   function handleEmployeeClick (employeeName)  {
     if (selectedEmployee.name === employeeName) {   
       setSelectedEmployee({});
@@ -41,27 +60,50 @@ const EmployeesData = [
       }
     }
   };
-  function handleSearch(searchValue){
+
+  /////////////////Search Function
+  // function handleSearch(searchValue){
     
 
-    const filteredEmployee = EmployeesData.filter((employee) => employee.name.toLowerCase().includes(searchValue.toLowerCase()));
-      setEmployees(filteredEmployee);
+  //   const filteredEmployee = employees.filter((employee) => employee.name.toLowerCase().includes(searchValue.toLowerCase()));
+  //     setEmployees(filteredEmployee);
 
-      setSearchInput(searchValue);
+  //     setSearchInput(searchValue);
 
 
-  }
+  // }
+  /////////////// Sorting
+  // function handleSortAsc(){
+  //   const sortedEmployees = [...employees].sort((a,b)=>a.name.localeCompare(b.name));
+  //   setEmployees(sortedEmployees);
+  // }
+
+  // function handleSortDesc(){
+  //   const sortedEmployees = [...employees].sort((a,b)=>b.name.localeCompare(a.name));
+  //   setEmployees(sortedEmployees);
+  // }
+
 
 
   return (
     <div id="App">
       <Ayslogo />
-      <Header totalEmployees ={employees.length}
-      onSearch = {handleSearch}
+      <Header totalEmployees ={employees}
+      // onSearch = {handleSearch}
+      // searchInput={searchInput}
+      settextFunction = {settextFunction}
+      // onSortAsc = {handleSortAsc}
+      // onSortDesc = {handleSortDesc}
+      setSelectedSortButtonFunction={setSelectedSortButtonFunction}
+      
       />
      
-      <EmployeeNavBar employees={employees} onEmployeeClick = {handleEmployeeClick} selectedEmployee={selectedEmployee}/>
-      <EmployeeDetails employee = {selectedEmployee}/>
+      <EmployeeNavBar employees={employees} onEmployeeClick = {handleEmployeeClick} selectedEmployee={selectedEmployee}
+      selectedSortButton={selectedSortButton} text={text} setSelectedEmployeeFunction={setSelectedEmployeeFunction}
+      />
+      <EmployeeDetails employee = {selectedEmployee}
+      />
+      {/* <EmployeeNames setSelectedEmployee ={setSelectedEmployee}/> */}
     </div>
   );
 }
