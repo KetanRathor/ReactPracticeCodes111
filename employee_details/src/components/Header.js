@@ -1,22 +1,32 @@
 import React from "react";
  function Header(props){
+ 
+    // function handleSearchClick(){
+    //     props.settextFunction(text);
+    // }
+
+    function handleSearchClick() {
+        if (props.text === undefined ) {
+            alert("text is undefined or empty!");
+          } else {
+            props.settextFunction(text);
+          }
+          
+      }
+      
+
+    // function handleInputChange(e){
+    //     text = (e.target.value)
+    // }
+
+    // function handleSortAsc(e){
+    //     props.setSelectedSortButtonFunction(e.target.id)
+    // }
+
+    // function handleSortDesc(e){
+    //     props.setSelectedSortButtonFunction(e.target.id)
+
     let text
-    function handleSearchClick(){
-        props.settextFunction(text);
-    }
-    function handleInputChange(e){
-        text = (e.target.value)
-    }
-
-    function handleSortAsc(e){
-        props.setSelectedSortButtonFunction(e.target.id)
-    }
-
-    function handleSortDesc(e){
-        props.setSelectedSortButtonFunction(e.target.id)
-    }
-
-
 
     return(
         <div id="Header">
@@ -27,13 +37,14 @@ import React from "react";
         <div id="ToolBar">
             <p id ="totalEmployees">Total Employees: {props.totalEmployees.length} </p>
         <button id="add" type="button">Add Employes</button>
-        <input type="text" id="fname" name="fname" placeholder="search"  onChange={handleInputChange}/>
+        <input type="text" id="fname" name="fname" placeholder="search" 
+         onChange={(e)=>text = (e.target.value)}
+         />
         <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
 
-        <button id="Asc" type="button" onClick={handleSortAsc}>Asc</button>
-        <button id="Desc" type="button"  onClick={handleSortDesc}>Desc</button>
-        <button id="Asc" type="button" onClick={handleSortAsc}>Asc</button>
-        <button id="Desc" type="button"  onClick={handleSortDesc}>Desc</button>
+        <button id="Asc" type="button" onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
+        <button id="Desc" type="button"  onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
+        
 
 
         </div>

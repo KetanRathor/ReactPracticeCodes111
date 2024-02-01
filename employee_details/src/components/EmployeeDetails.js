@@ -14,6 +14,8 @@ function EmployeeDetails(props) {
         <button id="Edit" type="button">Edit</button>
       </div>
       </div>
+    
+
     );
   } else {
     return null;
