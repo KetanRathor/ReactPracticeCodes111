@@ -83,7 +83,8 @@ function App() {
       />
      
       <EmployeeNavBar employees={employees} onEmployeeClick = {handleEmployeeClick} selectedEmployee={selectedEmployee}
-      selectedSortButton={selectedSortButton} text={text}
+      selectedSortButton={selectedSortButton} 
+      text={text}
       />
       
       <EmployeeDetails employee = {selectedEmployee}

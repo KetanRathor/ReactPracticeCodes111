@@ -24,13 +24,15 @@ function EmployeeNavBar(props){
   }
     
     cloneArray = [...cloneArray].filter((employee) => employee.name.toLowerCase().startsWith(props.text.toLowerCase()));
+
+    
     const list = [];
 
     for(let i = 0; i<cloneArray.length;i++){
       const employee = cloneArray[i];
       list.push(
         <EmployeeNames
-        key = {i} 
+        key = {employee.id} 
         emp={employee}
         onClickEmployee = {props.onEmployeeClick}
         isSelected={isEmployeeSelected(employee.name)} />

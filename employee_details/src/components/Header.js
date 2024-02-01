@@ -1,18 +1,23 @@
 import React from "react";
- function Header(props){
- 
-    // function handleSearchClick(){
-    //     props.settextFunction(text);
-    // }
+import{ useState } from "react";
 
-    function handleSearchClick() {
-        if (props.text === undefined ) {
-            alert("text is undefined or empty!");
-          } else {
-            props.settextFunction(text);
-          }
+ function Header(props){
+
+
+    const [text, setText] = useState("");
+    function handleSearchClick(){
+        props.settextFunction(text);
+    }
+
+    // function handleSearchClick() {
+        
+    //     if (text === undefined ) {
+    //         alert("text is undefined or empty!");
+    //       } else {
+    //         props.settextFunction(text);
+    //       }
           
-      }
+    //   }
       
 
     // function handleInputChange(e){
@@ -26,7 +31,7 @@ import React from "react";
     // function handleSortDesc(e){
     //     props.setSelectedSortButtonFunction(e.target.id)
 
-    let text
+    // let text
 
     return(
         <div id="Header">
@@ -38,7 +43,7 @@ import React from "react";
             <p id ="totalEmployees">Total Employees: {props.totalEmployees.length} </p>
         <button id="add" type="button">Add Employes</button>
         <input type="text" id="fname" name="fname" placeholder="search" 
-         onChange={(e)=>text = (e.target.value)}
+         onChange={(e)=>setText  (e.target.value)}
          />
         <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
 
