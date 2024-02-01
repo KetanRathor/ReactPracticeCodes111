@@ -2,14 +2,14 @@ import React from "react";
 function EmployeeNames(props){
     function handleClick (){
         
-        props.onClick(props.name)
+        props.onClickEmployee(props.emp)
     };
 
     return(
         <button id = "Empnames"
         onClick = {handleClick}
         style={{ backgroundColor: props.isSelected ? "yellow" : "transparent" }}>
-        {props.name}
+        {props.emp.name}
         </button>
         
     );
