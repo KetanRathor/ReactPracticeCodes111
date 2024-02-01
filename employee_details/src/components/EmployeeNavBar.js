@@ -5,6 +5,7 @@ import EmployeeNames from "./EmployeeNames";
 function EmployeeNavBar(props){
   function isEmployeeSelected(employeeName) {
     return props.selectedEmployee.name === employeeName;
+    
   }
 
 

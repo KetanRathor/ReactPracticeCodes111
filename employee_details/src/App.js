@@ -71,7 +71,7 @@ function setSelectedEmployeeFunction(employeeName){
   //     setSearchInput(searchValue);
 
 
-  }
+  
 
 
   return (
@@ -87,9 +87,14 @@ function setSelectedEmployeeFunction(employeeName){
       
       />
      
-      <EmployeeNavBar employees={employees} onEmployeeClick = {handleEmployeeClick} selectedEmployee={selectedEmployee}
-      selectedSortButton={selectedSortButton} text={text} setSelectedEmployeeFunction={setSelectedEmployeeFunction}
+      <EmployeeNavBar employees={employees} 
+      onEmployeeClick = {handleEmployeeClick} 
+      selectedEmployee={selectedEmployee}
+      selectedSortButton={selectedSortButton}
+      text={text}
+      setSelectedEmployeeFunction={setSelectedEmployeeFunction}
       />
+      
       <EmployeeDetails employee = {selectedEmployee}
       />
       {/* <EmployeeNames setSelectedEmployee ={setSelectedEmployee}/> */}

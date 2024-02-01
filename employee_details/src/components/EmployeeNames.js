@@ -2,6 +2,8 @@ import React from "react";
 function EmployeeNames(props){
     function handleClick (){
         
+
+
         props.onClick(props.name)
     };
 
