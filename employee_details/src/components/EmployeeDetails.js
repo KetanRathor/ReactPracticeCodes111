@@ -1,6 +1,12 @@
 import React from "react";
 
 function EmployeeDetails(props) {
+  function handleDelete(){
+    if(props.employee.id){
+      props.handleDeleteEmployee(props.employee.id);
+    };
+  }
+
     if (Object.keys(props.employee).length > 0) {
     return (
         <div id="EmployeeDetails">
@@ -10,7 +16,7 @@ function EmployeeDetails(props) {
         <p>Name: {props.employee.name}</p>
         <p>Salary: {props.employee.Salary}</p>
         <p>Designation: {props.employee.Designation}</p>
-        <button id="Delete" type="button">Delete</button>
+        <button id="Delete" type="button" onClick={handleDelete}>Delete </button>
         <button id="Edit" type="button">Edit</button>
       </div>
       </div>

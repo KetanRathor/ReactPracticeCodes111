@@ -29,17 +29,19 @@ function App() {
   const [selectedEmployee, setSelectedEmployee] = useState({});
   // const [searchInput, setSearchInput] = useState("");
 
-  const [selectedSortButton, setselectedSortButton] =useState("");
+  const [selectedSortButton, setSelectedSortButton] =useState("");
 
-  const [text, settext] = useState("")
+  const [text, setText] = useState("")
 
+  const [clickText, setClickText] = useState("");
 
   function setSelectedSortButtonFunction(id){
-    setselectedSortButton(id)
+    setSelectedSortButton(id)
   }
 
   function settextFunction(text){
-    settext(text)
+    // setText(text)
+    setClickText(text)
   }
 
 ///// Selecting Employee Click
@@ -54,6 +56,12 @@ function App() {
         
     }
   };
+
+  function handleDeleteEmployee(employeeId){
+    const updatedEmployees = employees.filter((employee)=>employee.id !==employeeId);
+    setEmployees(updatedEmployees);
+    setSelectedEmployee({});
+  }
 
   /////////////////Search Function
   // function handleSearch(searchValue){
@@ -71,24 +79,31 @@ function App() {
   return (
     <div id="App">
       <Ayslogo />
-      <Header totalEmployees ={employees}
+      <Header 
+      employees ={employees}
       // onSearch = {handleSearch}
       // searchInput={searchInput}
       settextFunction = {settextFunction}
       text={text}
+      setText = {setText}
       // onSortAsc = {handleSortAsc}
       // onSortDesc = {handleSortDesc}
       setSelectedSortButtonFunction={setSelectedSortButtonFunction}
+      selectedSortButton={selectedSortButton}
       
       />
      
       <EmployeeNavBar employees={employees} onEmployeeClick = {handleEmployeeClick} selectedEmployee={selectedEmployee}
       selectedSortButton={selectedSortButton} 
-      text={text}
+      text={clickText}
       />
       
-      <EmployeeDetails employee = {selectedEmployee}
+      <EmployeeDetails employee = {selectedEmployee} 
+      handleDeleteEmployee={handleDeleteEmployee}
+      setEmployees={setEmployees}
       />
+
+      {/* <AddEmployeeForm/> */}
      
     </div>
   );

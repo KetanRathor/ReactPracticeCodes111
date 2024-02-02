@@ -3,10 +3,11 @@ import{ useState } from "react";
 
  function Header(props){
 
+    // const [text, setText] = useState("");
 
-    const [text, setText] = useState("");
+
     function handleSearchClick(){
-        props.settextFunction(text);
+        props.settextFunction(props.text);
     }
 
     // function handleSearchClick() {
@@ -40,15 +41,15 @@ import{ useState } from "react";
             
         </div>
         <div id="ToolBar">
-            <p id ="totalEmployees">Total Employees: {props.totalEmployees.length} </p>
-        <button id="add" type="button">Add Employes</button>
+            <p id ="totalEmployees">Total Employees: {props.employees.length} </p>
+        <button id="add" type="button" >Add Employes</button>
         <input type="text" id="fname" name="fname" placeholder="search" 
-         onChange={(e)=>setText  (e.target.value)}
+         onChange={(e)=>props.setText (e.target.value)}
          />
         <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
 
-        <button id="Asc" type="button" onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
-        <button id="Desc" type="button"  onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
+        <button id="Asc" type="button" style={{backgroundColor:props.selectedSortButton==="Asc" ? "red" : ""}} onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
+        <button id="Desc" type="button" style={{backgroundColor:props.selectedSortButton==="Desc" ? "red" : ""}} onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
         
 
 

@@ -12,18 +12,18 @@ function EmployeeNavBar(props){
   
 
   function employeeList(){
-    let cloneArray = props.employees;
+    let cloneArray = JSON.parse(JSON.stringify(props.employees));
     if(props.selectedSortButton.length!==0){
     if(props.selectedSortButton === "Asc"){
-      cloneArray = [...cloneArray].sort((a,b)=>a.name.localeCompare(b.name));
+      cloneArray = cloneArray.sort((a,b)=>a.name.localeCompare(b.name));
     
     }
     else{
-      cloneArray = [...cloneArray].sort((a, b) => b.name.localeCompare(a.name));
+      cloneArray = cloneArray.sort((a, b) => b.name.localeCompare(a.name));
     }
   }
     
-    cloneArray = [...cloneArray].filter((employee) => employee.name.toLowerCase().startsWith(props.text.toLowerCase()));
+    cloneArray = cloneArray.filter((employee) => employee.name.toLowerCase().startsWith(props.text.toLowerCase()));
 
     
     const list = [];
