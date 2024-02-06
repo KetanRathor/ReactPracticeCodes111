@@ -22,7 +22,9 @@ function EmployeeNavBar(props){
       cloneArray = cloneArray.sort((a, b) => b.name.localeCompare(a.name));
     }
   }
+
     
+
     cloneArray = cloneArray.filter((employee) => employee.name.toLowerCase().startsWith(props.text.toLowerCase()));
 
     

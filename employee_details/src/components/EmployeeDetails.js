@@ -1,6 +1,7 @@
 import React from "react";
 
 function EmployeeDetails(props) {
+  
   function handleDelete(){
     if(props.employee.id){
       props.handleDeleteEmployee(props.employee.id);

@@ -4,7 +4,7 @@ import Ayslogo from "./components/Ayslogo";
 import Header from "./components/Header";
 import EmployeeNavBar from "./components/EmployeeNavBar";
 import EmployeeDetails from './components/EmployeeDetails';
-// import AddEmployeeForm from './components/AddEmployeeForm';
+import AddEmployeeForm from './components/AddEmployeeForm';
 
 import './App.css';
 
@@ -27,13 +27,35 @@ function App() {
 
   const [employees, setEmployees] = useState(employeesData);
   const [selectedEmployee, setSelectedEmployee] = useState({});
-  // const [searchInput, setSearchInput] = useState("");
-
   const [selectedSortButton, setSelectedSortButton] =useState("");
-
   const [text, setText] = useState("")
-
   const [clickText, setClickText] = useState("");
+  const [isAddEmployeeFormVisible, setAddEmployeeFormVisible] = useState(false);
+  const [employee, setEmployee] = useState({
+    id: "",
+    name: "",
+    salary: "",
+    designation: "",
+  });
+
+ 
+  
+  function handleAddEmployee(newEmployee){
+    setEmployees((prevEmployees)=>[...prevEmployees,newEmployee]);
+    // setAddEmployeeFormVisible(false);
+
+  }
+
+  const handleEmployeeChange = (e) => {
+    console.log("Handle Employee Change Called");
+    const { name, value } = e.target;
+    setEmployee((prevEmployee) => ({
+      ...prevEmployee,
+      [name]: value,
+    }));
+  };
+  
+
 
   function setSelectedSortButtonFunction(id){
     setSelectedSortButton(id)
@@ -58,7 +80,9 @@ function App() {
   };
 
   function handleDeleteEmployee(employeeId){
-    const updatedEmployees = employees.filter((employee)=>employee.id !==employeeId);
+    const cloneEmployees = JSON.parse(JSON.stringify(employees));
+
+    const updatedEmployees = cloneEmployees.filter((employee)=>employee.id !==employeeId);
     setEmployees(updatedEmployees);
     setSelectedEmployee({});
   }
@@ -86,10 +110,12 @@ function App() {
       settextFunction = {settextFunction}
       text={text}
       setText = {setText}
+      clickText = {clickText}
       // onSortAsc = {handleSortAsc}
       // onSortDesc = {handleSortDesc}
       setSelectedSortButtonFunction={setSelectedSortButtonFunction}
       selectedSortButton={selectedSortButton}
+      setAddEmployeeFormVisible = {setAddEmployeeFormVisible}
       
       />
      
@@ -103,7 +129,12 @@ function App() {
       setEmployees={setEmployees}
       />
 
-      {/* <AddEmployeeForm/> */}
+    {isAddEmployeeFormVisible && <AddEmployeeForm 
+    onAddEmployee={handleAddEmployee} 
+    employee = {employee}
+    handleEmployeeChange = {handleEmployeeChange}
+    />}
+
      
     </div>
   );
