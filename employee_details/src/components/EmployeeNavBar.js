@@ -4,7 +4,7 @@ import EmployeeNames from "./EmployeeNames";
 
 function EmployeeNavBar(props){
   function isEmployeeSelected(employeeName) {
-    return props.selectedEmployee.name === employeeName;
+    return props.selectedEmployee.id === employeeName;
     
   }
 
@@ -37,7 +37,7 @@ function EmployeeNavBar(props){
         key = {employee.id} 
         emp={employee}
         onClickEmployee = {props.onEmployeeClick}
-        isSelected={isEmployeeSelected(employee.name)} />
+        isSelected={isEmployeeSelected(employee.id)} />
       )
     }
     return list;
