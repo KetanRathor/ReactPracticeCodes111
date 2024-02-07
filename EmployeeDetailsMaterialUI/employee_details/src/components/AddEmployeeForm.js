@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 
-
 function AddEmployeeForm(props){
 
     const [employee, setEmployee] = useState({

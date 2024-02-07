@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@mui/material/Button";
 function EmployeeNames(props){
     function handleClick (){
         
@@ -6,11 +7,14 @@ function EmployeeNames(props){
     };
 
     return(
-        <button id = "Empnames"
+        <Button id = "Empnames"
+        variant="inherit"
+        // sx={{color:"black"}}
+       
         onClick = {handleClick}
         style={{ backgroundColor: props.isSelected ? "yellow" : "transparent" }}>
         {props.emp.name}
-        </button>
+        </Button>
         
     );
 }
