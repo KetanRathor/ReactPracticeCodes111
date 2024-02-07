@@ -1,73 +1,71 @@
 import React from "react";
-// import { useState } from "react";
-// import AddEmployeeForm from "./AddEmployeeForm";
+import Stack from "@mui/material/Stack";
+// import Box from "@mui/material/Box";
 
+function Header(props) {
+    function handleAddEmployeesClick() {
+        props.setAddEmployeeFormVisible(true);
+    };
 
- function Header(props){
-
-    // const [text, setText] = useState("");
-    // const [showAddEmployeeForm, setShowAddEmployeeForm] = useState(false);
-
- function handleAddEmployeesClick (){
-    props.setAddEmployeeFormVisible(true);
-  };
-
-
-
-    function handleSearchClick(){
+    function handleSearchClick() {
         props.settextFunction(props.text);
     }
 
-    
-    
+    return (
+        <Stack id="Header">
+            <Stack id="Header1">
+                Employee Details
 
-    // function handleSearchClick() {
-        
-    //     if (text === undefined ) {
-    //         alert("text is undefined or empty!");
-    //       } else {
-    //         props.settextFunction(text);
-    //       }
-          
-    //   }
-      
-
-    // function handleInputChange(e){
-    //     text = (e.target.value)
-    // }
-
-    // function handleSortAsc(e){
-    //     props.setSelectedSortButtonFunction(e.target.id)
-    // }
-
-    // function handleSortDesc(e){
-    //     props.setSelectedSortButtonFunction(e.target.id)
-
-    // let text
-
-    return(
-        <div id="Header">
-        <div id="Header1">
-            Employee Details
-            
-        </div>
-        <div id="ToolBar">
-            <p id ="totalEmployees">Total Employees: {props.employees.length} </p>
-        <button id="add" type="button" onClick={handleAddEmployeesClick} >Add Employes</button>
-        <input type="text" id="fname" name="fname" placeholder="search" 
-         onChange={(e)=>props.setText (e.target.value)}
-         />
-        <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
-
-        <button id="Asc" type="button" style={{backgroundColor:props.selectedSortButton==="Asc" ? "red" : ""}} onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
-        <button id="Desc" type="button" style={{backgroundColor:props.selectedSortButton==="Desc" ? "red" : ""}} onClick={(e)=>props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
-        
-        
-
-        {/* {showAddEmployeeForm && <AddEmployeeForm />} */}
-        </div>
-        
-        </div>
+            </Stack>
+            <Stack id="ToolBar" direction="row" >
+                <p id="totalEmployees">Total Employees: {props.employees.length} </p>
+                <button id="add" type="button" onClick={handleAddEmployeesClick} >Add Employes</button>
+                <input type="text" id="fname" name="fname" placeholder="search"
+                    onChange={(e) => props.setText(e.target.value)}
+                />
+                <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
+                <button id="Asc" type="button" style={{ backgroundColor: props.selectedSortButton === "Asc" ? "red" : "" }} onClick={(e) => props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
+                <button id="Desc" type="button" style={{ backgroundColor: props.selectedSortButton === "Desc" ? "red" : "" }} onClick={(e) => props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
+            </Stack>
+        </Stack>
     )
- }
- export default Header;
+}
+export default Header;
+
+
+
+
+
+
+
+// import React from "react";
+
+// function Header(props) {
+//     function handleAddEmployeesClick() {
+//         props.setAddEmployeeFormVisible(true);
+//     };
+
+//     function handleSearchClick() {
+//         props.settextFunction(props.text);
+//     }
+
+//     return (
+//         <div id="Header">
+//             <div id="Header1">
+//                 Employee Details
+
+//             </div>
+//             <div id="ToolBar">
+//                 <p id="totalEmployees">Total Employees: {props.employees.length} </p>
+//                 <button id="add" type="button" onClick={handleAddEmployeesClick} >Add Employes</button>
+//                 <input type="text" id="fname" name="fname" placeholder="search"
+//                     onChange={(e) => props.setText(e.target.value)}
+//                 />
+//                 <button id="Search" type="button" onClick={handleSearchClick}>Search</button>
+//                 <button id="Asc" type="button" style={{ backgroundColor: props.selectedSortButton === "Asc" ? "red" : "" }} onClick={(e) => props.setSelectedSortButtonFunction(e.target.id)}>Asc</button>
+//                 <button id="Desc" type="button" style={{ backgroundColor: props.selectedSortButton === "Desc" ? "red" : "" }} onClick={(e) => props.setSelectedSortButtonFunction(e.target.id)}>Desc</button>
+//             </div>
+//         </div>
+//     )
+// }
+// export default Header;
