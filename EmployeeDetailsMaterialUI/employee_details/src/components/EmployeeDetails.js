@@ -1,3 +1,8 @@
+import { Button, Stack, Typography } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from "@mui/icons-material/Create";
+
+
 import React from "react";
 
 function EmployeeDetails(props) {
@@ -10,17 +15,39 @@ function EmployeeDetails(props) {
 
     if (Object.keys(props.employee).length > 0) {
     return (
-        <div id="EmployeeDetails">
-      <div id="EmployeeDetails1">
-        <h2>Employee Details:</h2>
-        <p>Id: {props.employee.id}</p>
-        <p>Name: {props.employee.name}</p>
-        <p>Salary: {props.employee.Salary}</p>
-        <p>Designation: {props.employee.Designation}</p>
-        <button id="Delete" type="button" onClick={handleDelete}>Delete </button>
-        <button id="Edit" type="button">Edit</button>
-      </div>
-      </div>
+        <Stack id="EmployeeDetails"
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        
+        >
+      <Stack id="EmployeeDetails1"
+      sx={{width:"150%"}}
+      >
+        <Typography variant="h6">Employee Details</Typography>
+        <Typography>Id: {props.employee.id}</Typography>
+        <Typography>Name: {props.employee.name}</Typography>
+        <Typography>Salary: {props.employee.Salary}</Typography>
+        <Typography>Designation: {props.employee.Designation}</Typography>
+        <Stack direction="row"spacing={1}>
+        
+        <Button id="Edit" type="button"
+        sx={{width:"40%", height:"20px", fontSize: '10px'}}
+        startIcon={<EditIcon />}
+        variant="contained"
+
+        >Edit</Button>
+
+        <Button id="Delete" type="button"  onClick={handleDelete}
+        sx={{width:"40%", height:"20px", fontSize: '10px', color:"red"}}
+        startIcon={<DeleteIcon/>}
+        variant="outlined"
+        
+        >Delete </Button>
+        </Stack>
+
+      </Stack>
+      </Stack>
     
 
     );

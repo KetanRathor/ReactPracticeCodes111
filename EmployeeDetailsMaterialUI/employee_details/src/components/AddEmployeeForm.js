@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
+import { TextField } from "@mui/material";
+
 
 
 function AddEmployeeForm(props){
@@ -27,36 +32,43 @@ function AddEmployeeForm(props){
 
 
     return(
-        <div id= "EmployeeForm">
-        <h2>Add Employee Details</h2>
-        <form  onSubmit={handleFormSubmit}>
+        <Stack id= "EmployeeForm"
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        top={"0px"}
+
+        >
+        <Typography variant="h6"> Add Employee Details</Typography>
+        <form onSubmit={handleFormSubmit}>
         <label htmlFor="id">Id:</label>
-        <input type="text" id="id" name="id"
+        <TextField type="text" id="id" name="id"
+        // sx={{ height: "2%" }}
         value={employee.id}
         onChange={handleEmployeeChange}
         /> <br/>
 
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name"
+        <TextField type="text" id="name" name="name"
         value={employee.name}
         onChange={handleEmployeeChange}
         /> <br/>
 
         <label htmlFor="salary">Salary:</label>
-        <input type="text" id="Salary" name="salary"
+        <TextField type="text" id="Salary" name="salary"
         value={employee.Salary}
         onChange={handleEmployeeChange}
         /> <br/>
 
         <label htmlFor="designation">Designation:</label>
-        <input type="text" id="Designation" name="designation" 
+        <TextField type="text" id="Designation" name="designation" 
         value={employee.Designation}
         onChange={handleEmployeeChange}
         /> <br/>
 
-        <input type="submit" value="Submit" />
+        <Button type="submit" value="Submit" > Submit </Button>
         </form>
-        </div>
+        </Stack>
 
         
     )
