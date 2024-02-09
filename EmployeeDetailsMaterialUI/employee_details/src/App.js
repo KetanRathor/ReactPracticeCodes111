@@ -7,7 +7,7 @@ import EmployeeDetails from './components/EmployeeDetails';
 import AddEmployeeForm from './components/AddEmployeeForm';
 
 import './App.css';
-import { Grid } from '@mui/material';
+import { Box } from '@mui/material';
 
 
 
@@ -57,15 +57,36 @@ function App() {
   ///// Selecting Employee Click
 
 
-  function handleEmployeeClick(employee) {
-    if (selectedEmployee.id === employee.name) {
-      setSelectedEmployee({});
-    } else {
-      // setSelectedEmployee({name:employeeName});
-      setSelectedEmployee(employee);
+  // function handleEmployeeClick(employee) {
+  //   if (selectedEmployee.id === employee.name) {
+  //     setSelectedEmployee({});
+  //     setAddEmployeeFormVisible(false);
+  //   } else {
+  //     // setSelectedEmployee({name:employeeName});
+  //     setSelectedEmployee(employee);
+  //     setAddEmployeeFormVisible(true);
 
+  //   }
+  // };
+
+  function handleEmployeeClick(employee){
+    if(isAddEmployeeFormVisible){
+      setAddEmployeeFormVisible(false);
+      setSelectedEmployee(employee)
     }
-  };
+    // else if(selectedEmployee.id===employee.name){
+    //     // setSelectedEmployee({})
+    //   }
+      else{
+        setSelectedEmployee(employee)
+        
+      }
+  }
+
+
+
+
+
 
   function handleDeleteEmployee(employeeId) {
     const cloneEmployees = JSON.parse(JSON.stringify(employees));
@@ -89,7 +110,7 @@ function App() {
 
 
   return (
-    <Grid>
+    <Box>
       {/* <Ayslogo /> */}
     
       
@@ -108,12 +129,12 @@ function App() {
         setAddEmployeeFormVisible={setAddEmployeeFormVisible}
 
       />
-      <Grid 
+      <Box 
       display="flex"
 
       sx={{paddingTop:"6%"}}
       // container
-      direction="row"
+      // direction="row"
       // gap={30}
       
       >
@@ -128,33 +149,48 @@ function App() {
           // onSortAsc = {handleSortAsc}
           // onSortDesc = {handleSortDesc}
           setSelectedSortButtonFunction={setSelectedSortButtonFunction}
-
+          setSelectedEmployee={setSelectedEmployee}
           setAddEmployeeFormVisible={setAddEmployeeFormVisible}
         />
-        <Grid
+        <Box
           display={'flex'}
           justifyContent={'center'}
           position={'relative'}
           left={"30%"}
+          paddingTop={"2%"}
 
         >
+          
+        {/* display={'flex'}
+        justifyContent={'center'}
+        position={'relative'}
+        left={"15%"} */}
+        
+        {isAddEmployeeFormVisible ?( <AddEmployeeForm
+          handleAddEmployee={handleAddEmployee}
+          employees={employees}
+          setAddEmployeeFormVisible={setAddEmployeeFormVisible}
+        />
+  ):(
+
+      
+
         <EmployeeDetails employee={selectedEmployee}
           handleDeleteEmployee={handleDeleteEmployee}
           setEmployees={setEmployees}
         />
-        </Grid>
-      </Grid>
+        )}
+
+        
+        </Box>
+      </Box>
 
       
       
 
-        {isAddEmployeeFormVisible && <AddEmployeeForm
-          handleAddEmployee={handleAddEmployee}
-          employees={employees}
-          setAddEmployeeFormVisible={setAddEmployeeFormVisible}
-        />}
+        
       
-    </Grid>
+    </Box>
   );
 }
 

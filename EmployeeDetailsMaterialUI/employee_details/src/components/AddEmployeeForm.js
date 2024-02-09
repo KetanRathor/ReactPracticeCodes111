@@ -34,14 +34,17 @@ function AddEmployeeForm(props){
     return(
         <Stack id= "EmployeeForm"
         display={"flex"}
+        // direction={"column"}
         justifyContent={"center"}
         alignItems={"center"}
-        top={"0px"}
+        // textAlign= {"center"}
+        
 
         >
         <Typography variant="h6"> Add Employee Details</Typography>
         <form onSubmit={handleFormSubmit}>
         <label htmlFor="id">Id:</label>
+        
         <TextField type="text" id="id" name="id"
         // sx={{ height: "2%" }}
         value={employee.id}

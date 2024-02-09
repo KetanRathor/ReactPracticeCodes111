@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography,Card } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from "@mui/icons-material/Create";
 
@@ -15,14 +15,16 @@ function EmployeeDetails(props) {
 
     if (Object.keys(props.employee).length > 0) {
     return (
-        <Stack id="EmployeeDetails"
+        <Card id="EmployeeDetails"
+        sx={{height:"25vh",width:"50vh",textAlign: "left"}}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         
+        
         >
       <Stack id="EmployeeDetails1"
-      sx={{width:"150%"}}
+      // sx={{width:"150%"}}
       >
         <Typography variant="h6">Employee Details</Typography>
         <Typography>Id: {props.employee.id}</Typography>
@@ -47,7 +49,7 @@ function EmployeeDetails(props) {
         </Stack>
 
       </Stack>
-      </Stack>
+      </Card>
     
 
     );

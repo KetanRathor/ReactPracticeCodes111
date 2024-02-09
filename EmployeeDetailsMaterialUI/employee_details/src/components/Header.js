@@ -21,11 +21,11 @@ function Header(props) {
     return (
         <>
             <AppBar id="Header1"
-                sx={{ height: "17%", width:"100%" ,backgroundColor: "white" }}
+                sx={{ height: "17%", width:"100%" ,backgroundColor: "black" }}
             >
                 <Toolbar>
                     <img src="..\AYSLogo1.jpg" alt=""
-                        style={{ height: "100%", width: "20%", paddingTop: "3px" }} />
+                        style={{ height: "110%", width: "30%", padding: "0px" }} />
                     {/* <Typography
                         variant="h6"
                         sx={{ color: "black", marginLeft:"25%" }}
