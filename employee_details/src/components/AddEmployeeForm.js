@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 
 function AddEmployeeForm(props){
+
+    const [employee, setEmployee] = useState({
+        id: "",
+        name: "",
+        Salary: "",
+        Designation: "",
+      });
+    
+    const handleEmployeeChange = (e) => {
+        console.log("Handle Employee Change Called");
+        const obj =  {}
+        obj[e.target.id] = e.target.value
+        setEmployee({...employee,...obj});
+      };
+
     function handleFormSubmit(e){
         e.preventDefault();
-        props.handleAddEmployee(props.employee);
+        props.handleAddEmployee(employee);
+        props.setAddEmployeeFormVisible(false);
 
     };    
     
@@ -14,28 +31,28 @@ function AddEmployeeForm(props){
         <div id= "EmployeeForm">
         <h2>Add Employee Details</h2>
         <form  onSubmit={handleFormSubmit}>
-        <label for="id">Id:</label>
+        <label htmlFor="id">Id:</label>
         <input type="text" id="id" name="id"
-        value={props.employee.id}
-        onChange={props.onEmployeeChange}
+        value={employee.id}
+        onChange={handleEmployeeChange}
         /> <br/>
 
-        <label for="name">Name:</label>
+        <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name"
-        value={props.employee.name}
-        onChange={props.onEmployeeChange}
+        value={employee.name}
+        onChange={handleEmployeeChange}
         /> <br/>
 
-        <label for="salary">Salary:</label>
-        <input type="text" id="salary" name="salary"
-        value={props.employee.salary}
-        onChange={props.onEmployeeChange}
+        <label htmlFor="salary">Salary:</label>
+        <input type="text" id="Salary" name="salary"
+        value={employee.Salary}
+        onChange={handleEmployeeChange}
         /> <br/>
 
-        <label for="designation">Designation:</label>
-        <input type="text" id="designation" name="designation" 
-        value={props.employee.designation}
-        onChange={props.onEmployeeChange}
+        <label htmlFor="designation">Designation:</label>
+        <input type="text" id="Designation" name="designation" 
+        value={employee.Designation}
+        onChange={handleEmployeeChange}
         /> <br/>
 
         <input type="submit" value="Submit" />

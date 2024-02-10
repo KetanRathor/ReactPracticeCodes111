@@ -31,29 +31,16 @@ function App() {
   const [text, setText] = useState("")
   const [clickText, setClickText] = useState("");
   const [isAddEmployeeFormVisible, setAddEmployeeFormVisible] = useState(false);
-  const [employee, setEmployee] = useState({
-    id: "",
-    name: "",
-    salary: "",
-    designation: "",
-  });
+  
 
  
-  
   function handleAddEmployee(newEmployee){
-    setEmployees((prevEmployees)=>[...prevEmployees,newEmployee]);
-    // setAddEmployeeFormVisible(false);
-
+      const updatedEmployees = JSON.parse(JSON.stringify(employees));
+      updatedEmployees.push(newEmployee);
+      setEmployees(updatedEmployees);
   }
 
-  const handleEmployeeChange = (e) => {
-    console.log("Handle Employee Change Called");
-    const { name, value } = e.target;
-    setEmployee((prevEmployee) => ({
-      ...prevEmployee,
-      [name]: value,
-    }));
-  };
+
   
 
 
@@ -70,7 +57,7 @@ function App() {
 
 
   function handleEmployeeClick (employee)  {
-    if (selectedEmployee.name === employee.name) {   
+    if (selectedEmployee.id === employee.name) {   
       setSelectedEmployee({});
     } else {    
       // setSelectedEmployee({name:employeeName});
@@ -130,9 +117,9 @@ function App() {
       />
 
     {isAddEmployeeFormVisible && <AddEmployeeForm 
-    onAddEmployee={handleAddEmployee} 
-    employee = {employee}
-    handleEmployeeChange = {handleEmployeeChange}
+    handleAddEmployee={handleAddEmployee} 
+    employees = {employees}
+    setAddEmployeeFormVisible = {setAddEmployeeFormVisible}
     />}
 
      
